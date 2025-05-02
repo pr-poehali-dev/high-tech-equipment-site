@@ -2,38 +2,24 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
-import { Link } from "react-router-dom";
+import Navbar from "@/components/ui/navbar";
 
 const Index = () => {
   return (
     <div className="flex flex-col min-h-screen bg-white">
       {/* Header */}
-      <header className="bg-[#1A1F2C] text-white">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Icon name="Zap" className="text-[#9b87f5]" size={24} />
-            <h1 className="text-xl font-bold">ТехИнновации</h1>
-          </div>
-          <nav className="hidden md:flex items-center gap-8">
-            <a href="#about" className="hover:text-[#9b87f5] transition-colors">О компании</a>
-            <a href="#products" className="hover:text-[#9b87f5] transition-colors">Продукция</a>
-            <a href="#services" className="hover:text-[#9b87f5] transition-colors">Услуги</a>
-            <a href="#contacts" className="hover:text-[#9b87f5] transition-colors">Контакты</a>
-          </nav>
-          <Button>Связаться с нами</Button>
-        </div>
-      </header>
+      <Navbar />
 
       {/* Hero Section */}
       <section className="relative h-[80vh] bg-gradient-to-r from-[#1A1F2C] to-[#2A2F3C] text-white flex items-center">
         <div className="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')] bg-cover bg-center"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl">
-            <h1 className="text-5xl font-bold mb-6">Инновационные технологические решения для вашего бизнеса</h1>
-            <p className="text-xl mb-8 text-gray-200">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 animate-fadeIn">Инновационные технологические решения для вашего бизнеса</h1>
+            <p className="text-lg md:text-xl mb-8 text-gray-200 animate-fadeIn" style={{animationDelay: "0.2s"}}>
               Разрабатываем и производим высокотехнологичное оборудование, которое помогает нашим клиентам увеличивать эффективность и конкурентоспособность.
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-4 animate-fadeIn" style={{animationDelay: "0.4s"}}>
               <Button size="lg" className="bg-[#9b87f5] hover:bg-[#8B5CF6]">
                 Наши решения
                 <Icon name="ArrowRight" />
@@ -65,16 +51,16 @@ const Index = () => {
                 Наша миссия — помогать бизнесу внедрять инновационные технологические решения,
                 которые обеспечивают рост производительности и конкурентные преимущества.
               </p>
-              <div className="flex gap-8 mt-8">
-                <div>
+              <div className="flex flex-wrap justify-between gap-4 mt-8">
+                <div className="flex flex-col items-center">
                   <p className="text-4xl font-bold text-[#9b87f5]">10+</p>
                   <p className="text-gray-600">лет опыта</p>
                 </div>
-                <div>
+                <div className="flex flex-col items-center">
                   <p className="text-4xl font-bold text-[#9b87f5]">200+</p>
                   <p className="text-gray-600">реализованных проектов</p>
                 </div>
-                <div>
+                <div className="flex flex-col items-center">
                   <p className="text-4xl font-bold text-[#9b87f5]">50+</p>
                   <p className="text-gray-600">инженеров</p>
                 </div>
@@ -102,63 +88,24 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="h-64 overflow-hidden">
-                <img 
-                  src="https://images.unsplash.com/photo-1581092162384-8987c1d64718?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
-                  alt="Автоматизированные системы" 
-                  className="w-full h-full object-cover transition-transform hover:scale-105"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">Автоматизированные системы управления</h3>
-                <p className="text-gray-600 mb-4">
-                  Современные системы АСУ ТП для повышения эффективности производства
-                </p>
-                <Button variant="ghost" className="text-[#9b87f5] hover:text-[#8B5CF6] p-0">
-                  Подробнее <Icon name="ChevronRight" />
-                </Button>
-              </div>
-            </Card>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <ProductCard 
+              image="https://images.unsplash.com/photo-1581092162384-8987c1d64718?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+              title="Автоматизированные системы управления"
+              description="Современные системы АСУ ТП для повышения эффективности производства"
+            />
             
-            <Card className="overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="h-64 overflow-hidden">
-                <img 
-                  src="https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
-                  alt="Роботизированные комплексы" 
-                  className="w-full h-full object-cover transition-transform hover:scale-105"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">Роботизированные комплексы</h3>
-                <p className="text-gray-600 mb-4">
-                  Промышленные роботы и автоматические линии производства
-                </p>
-                <Button variant="ghost" className="text-[#9b87f5] hover:text-[#8B5CF6] p-0">
-                  Подробнее <Icon name="ChevronRight" />
-                </Button>
-              </div>
-            </Card>
+            <ProductCard 
+              image="https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+              title="Роботизированные комплексы"
+              description="Промышленные роботы и автоматические линии производства"
+            />
             
-            <Card className="overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="h-64 overflow-hidden">
-                <img 
-                  src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
-                  alt="Измерительные приборы" 
-                  className="w-full h-full object-cover transition-transform hover:scale-105"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">Измерительные приборы и системы</h3>
-                <p className="text-gray-600 mb-4">
-                  Высокоточное оборудование для контроля и измерения параметров
-                </p>
-                <Button variant="ghost" className="text-[#9b87f5] hover:text-[#8B5CF6] p-0">
-                  Подробнее <Icon name="ChevronRight" />
-                </Button>
-              </div>
-            </Card>
+            <ProductCard 
+              image="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+              title="Измерительные приборы и системы"
+              description="Высокоточное оборудование для контроля и измерения параметров"
+            />
           </div>
         </div>
       </section>
@@ -172,65 +119,41 @@ const Index = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-[#2A2F3C] p-8 rounded-lg hover:translate-y-[-5px] transition-transform">
-              <div className="rounded-full bg-[#9b87f5]/20 w-16 h-16 flex items-center justify-center mb-6">
-                <Icon name="Settings" size={28} className="text-[#9b87f5]" />
-              </div>
-              <h3 className="text-xl font-bold mb-4">Проектирование</h3>
-              <p className="text-gray-300">
-                Разработка технической документации и проектирование оборудования любой сложности
-              </p>
-            </div>
+            <ServiceCard 
+              icon="Settings"
+              title="Проектирование"
+              description="Разработка технической документации и проектирование оборудования любой сложности"
+            />
             
-            <div className="bg-[#2A2F3C] p-8 rounded-lg hover:translate-y-[-5px] transition-transform">
-              <div className="rounded-full bg-[#9b87f5]/20 w-16 h-16 flex items-center justify-center mb-6">
-                <Icon name="Cog" size={28} className="text-[#9b87f5]" />
-              </div>
-              <h3 className="text-xl font-bold mb-4">Производство</h3>
-              <p className="text-gray-300">
-                Изготовление оборудования с использованием современных материалов и технологий
-              </p>
-            </div>
+            <ServiceCard 
+              icon="Cog"
+              title="Производство"
+              description="Изготовление оборудования с использованием современных материалов и технологий"
+            />
             
-            <div className="bg-[#2A2F3C] p-8 rounded-lg hover:translate-y-[-5px] transition-transform">
-              <div className="rounded-full bg-[#9b87f5]/20 w-16 h-16 flex items-center justify-center mb-6">
-                <Icon name="FileText" size={28} className="text-[#9b87f5]" />
-              </div>
-              <h3 className="text-xl font-bold mb-4">Сертификация</h3>
-              <p className="text-gray-300">
-                Сопровождение процесса сертификации продукции по российским и международным стандартам
-              </p>
-            </div>
+            <ServiceCard 
+              icon="FileText"
+              title="Сертификация"
+              description="Сопровождение процесса сертификации продукции по российским и международным стандартам"
+            />
             
-            <div className="bg-[#2A2F3C] p-8 rounded-lg hover:translate-y-[-5px] transition-transform">
-              <div className="rounded-full bg-[#9b87f5]/20 w-16 h-16 flex items-center justify-center mb-6">
-                <Icon name="LifeBuoy" size={28} className="text-[#9b87f5]" />
-              </div>
-              <h3 className="text-xl font-bold mb-4">Техническая поддержка</h3>
-              <p className="text-gray-300">
-                Гарантийное и постгарантийное обслуживание поставляемого оборудования
-              </p>
-            </div>
+            <ServiceCard 
+              icon="LifeBuoy"
+              title="Техническая поддержка"
+              description="Гарантийное и постгарантийное обслуживание поставляемого оборудования"
+            />
             
-            <div className="bg-[#2A2F3C] p-8 rounded-lg hover:translate-y-[-5px] transition-transform">
-              <div className="rounded-full bg-[#9b87f5]/20 w-16 h-16 flex items-center justify-center mb-6">
-                <Icon name="BookOpen" size={28} className="text-[#9b87f5]" />
-              </div>
-              <h3 className="text-xl font-bold mb-4">Обучение персонала</h3>
-              <p className="text-gray-300">
-                Проведение тренингов и обучающих курсов для работы с оборудованием
-              </p>
-            </div>
+            <ServiceCard 
+              icon="BookOpen"
+              title="Обучение персонала"
+              description="Проведение тренингов и обучающих курсов для работы с оборудованием"
+            />
             
-            <div className="bg-[#2A2F3C] p-8 rounded-lg hover:translate-y-[-5px] transition-transform">
-              <div className="rounded-full bg-[#9b87f5]/20 w-16 h-16 flex items-center justify-center mb-6">
-                <Icon name="Wrench" size={28} className="text-[#9b87f5]" />
-              </div>
-              <h3 className="text-xl font-bold mb-4">Модернизация</h3>
-              <p className="text-gray-300">
-                Обновление и модернизация существующего оборудования для улучшения характеристик
-              </p>
-            </div>
+            <ServiceCard 
+              icon="Wrench"
+              title="Модернизация"
+              description="Обновление и модернизация существующего оборудования для улучшения характеристик"
+            />
           </div>
         </div>
       </section>
@@ -260,45 +183,29 @@ const Index = () => {
           <div className="grid md:grid-cols-2 gap-12">
             <div>
               <h3 className="text-2xl font-bold mb-6">Свяжитесь с нами</h3>
-              <div className="flex items-start gap-4 mb-6">
-                <div className="mt-1">
-                  <Icon name="MapPin" className="text-[#9b87f5]" />
-                </div>
-                <div>
-                  <h4 className="font-semibold mb-1">Адрес</h4>
-                  <p className="text-gray-600">Москва, ул. Технологическая, 42</p>
-                </div>
-              </div>
+              <ContactInfo 
+                icon="MapPin"
+                title="Адрес"
+                text="Москва, ул. Технологическая, 42"
+              />
               
-              <div className="flex items-start gap-4 mb-6">
-                <div className="mt-1">
-                  <Icon name="Phone" className="text-[#9b87f5]" />
-                </div>
-                <div>
-                  <h4 className="font-semibold mb-1">Телефон</h4>
-                  <p className="text-gray-600">+7 (495) 123-45-67</p>
-                </div>
-              </div>
+              <ContactInfo 
+                icon="Phone"
+                title="Телефон"
+                text="+7 (495) 123-45-67"
+              />
               
-              <div className="flex items-start gap-4 mb-6">
-                <div className="mt-1">
-                  <Icon name="Mail" className="text-[#9b87f5]" />
-                </div>
-                <div>
-                  <h4 className="font-semibold mb-1">Email</h4>
-                  <p className="text-gray-600">info@techinnovation.ru</p>
-                </div>
-              </div>
+              <ContactInfo 
+                icon="Mail"
+                title="Email"
+                text="info@techinnovation.ru"
+              />
               
-              <div className="flex items-start gap-4">
-                <div className="mt-1">
-                  <Icon name="Clock" className="text-[#9b87f5]" />
-                </div>
-                <div>
-                  <h4 className="font-semibold mb-1">Время работы</h4>
-                  <p className="text-gray-600">Пн-Пт: 9:00 - 18:00</p>
-                </div>
-              </div>
+              <ContactInfo 
+                icon="Clock"
+                title="Время работы"
+                text="Пн-Пт: 9:00 - 18:00"
+              />
             </div>
             
             <div className="bg-gray-50 p-8 rounded-lg">
@@ -362,16 +269,16 @@ const Index = () => {
                 Разработка и производство высокотехнологичного оборудования для различных отраслей промышленности
               </p>
               <div className="flex gap-4">
-                <a href="#" className="text-gray-400 hover:text-[#9b87f5]">
+                <a href="#" className="text-gray-400 hover:text-[#9b87f5] transition-colors">
                   <Icon name="Facebook" />
                 </a>
-                <a href="#" className="text-gray-400 hover:text-[#9b87f5]">
+                <a href="#" className="text-gray-400 hover:text-[#9b87f5] transition-colors">
                   <Icon name="Instagram" />
                 </a>
-                <a href="#" className="text-gray-400 hover:text-[#9b87f5]">
+                <a href="#" className="text-gray-400 hover:text-[#9b87f5] transition-colors">
                   <Icon name="Linkedin" />
                 </a>
-                <a href="#" className="text-gray-400 hover:text-[#9b87f5]">
+                <a href="#" className="text-gray-400 hover:text-[#9b87f5] transition-colors">
                   <Icon name="Youtube" />
                 </a>
               </div>
@@ -380,22 +287,22 @@ const Index = () => {
             <div>
               <h4 className="text-lg font-bold mb-4">Навигация</h4>
               <ul className="space-y-2">
-                <li><a href="#" className="text-gray-400 hover:text-[#9b87f5]">Главная</a></li>
-                <li><a href="#about" className="text-gray-400 hover:text-[#9b87f5]">О компании</a></li>
-                <li><a href="#products" className="text-gray-400 hover:text-[#9b87f5]">Продукция</a></li>
-                <li><a href="#services" className="text-gray-400 hover:text-[#9b87f5]">Услуги</a></li>
-                <li><a href="#contacts" className="text-gray-400 hover:text-[#9b87f5]">Контакты</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-[#9b87f5] transition-colors">Главная</a></li>
+                <li><a href="#about" className="text-gray-400 hover:text-[#9b87f5] transition-colors">О компании</a></li>
+                <li><a href="#products" className="text-gray-400 hover:text-[#9b87f5] transition-colors">Продукция</a></li>
+                <li><a href="#services" className="text-gray-400 hover:text-[#9b87f5] transition-colors">Услуги</a></li>
+                <li><a href="#contacts" className="text-gray-400 hover:text-[#9b87f5] transition-colors">Контакты</a></li>
               </ul>
             </div>
             
             <div>
               <h4 className="text-lg font-bold mb-4">Продукция</h4>
               <ul className="space-y-2">
-                <li><a href="#" className="text-gray-400 hover:text-[#9b87f5]">Автоматизированные системы</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-[#9b87f5]">Роботизированные комплексы</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-[#9b87f5]">Измерительные приборы</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-[#9b87f5]">Программное обеспечение</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-[#9b87f5]">Комплектующие</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-[#9b87f5] transition-colors">Автоматизированные системы</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-[#9b87f5] transition-colors">Роботизированные комплексы</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-[#9b87f5] transition-colors">Измерительные приборы</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-[#9b87f5] transition-colors">Программное обеспечение</a></li>
+                <li><a href="#" className="text-gray-400 hover:text-[#9b87f5] transition-colors">Комплектующие</a></li>
               </ul>
             </div>
             
@@ -423,6 +330,75 @@ const Index = () => {
           </div>
         </div>
       </footer>
+    </div>
+  );
+};
+
+interface ProductCardProps {
+  image: string;
+  title: string;
+  description: string;
+}
+
+const ProductCard = ({ image, title, description }: ProductCardProps) => {
+  return (
+    <Card className="overflow-hidden hover:shadow-lg transition-shadow">
+      <div className="h-64 overflow-hidden">
+        <img 
+          src={image} 
+          alt={title} 
+          className="w-full h-full object-cover transition-transform hover:scale-105 duration-300"
+        />
+      </div>
+      <div className="p-6">
+        <h3 className="text-xl font-bold mb-2">{title}</h3>
+        <p className="text-gray-600 mb-4">
+          {description}
+        </p>
+        <Button variant="ghost" className="text-[#9b87f5] hover:text-[#8B5CF6] p-0">
+          Подробнее <Icon name="ChevronRight" />
+        </Button>
+      </div>
+    </Card>
+  );
+};
+
+interface ServiceCardProps {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+const ServiceCard = ({ icon, title, description }: ServiceCardProps) => {
+  return (
+    <div className="bg-[#2A2F3C] p-8 rounded-lg hover:translate-y-[-5px] transition-transform duration-300">
+      <div className="rounded-full bg-[#9b87f5]/20 w-16 h-16 flex items-center justify-center mb-6">
+        <Icon name={icon} size={28} className="text-[#9b87f5]" />
+      </div>
+      <h3 className="text-xl font-bold mb-4">{title}</h3>
+      <p className="text-gray-300">
+        {description}
+      </p>
+    </div>
+  );
+};
+
+interface ContactInfoProps {
+  icon: string;
+  title: string;
+  text: string;
+}
+
+const ContactInfo = ({ icon, title, text }: ContactInfoProps) => {
+  return (
+    <div className="flex items-start gap-4 mb-6">
+      <div className="mt-1">
+        <Icon name={icon} className="text-[#9b87f5]" />
+      </div>
+      <div>
+        <h4 className="font-semibold mb-1">{title}</h4>
+        <p className="text-gray-600">{text}</p>
+      </div>
     </div>
   );
 };

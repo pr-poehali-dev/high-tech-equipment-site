@@ -26,7 +26,7 @@ const BackToTop = () => {
   }, []);
 
   return (
-    <div className={`fixed bottom-6 right-6 transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+    <div className={`fixed bottom-6 right-6 transition-opacity duration-300 z-50 ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
       <button
         onClick={scrollToTop}
         className="bg-[#9b87f5] text-white p-3 rounded-full shadow-lg hover:bg-[#8B5CF6] transition-colors focus:outline-none"
